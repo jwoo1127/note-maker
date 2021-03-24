@@ -1,0 +1,38 @@
+  {
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjuejZgvrN79OMo4kflWl5Y/tdin6S6dHO9r45/dzDS6Gl+jA2gHcmiflbH7p1Gd4fH3l9pzQq3LEpYXOfskcL9fhe6r6sxFS235SsCWdEfzj6UgJduGXqfFCQTTOgG6vHfRe1i0DBOHV5xIbbi8MFeLqZAc9MTZNAj14EmCUFGs8BwXMgxd2AgsI5wOD7MvZkR6KiSfxqa/b7PsPxsafunyKpU/fI1lnOqdi1WOP25vmzcKrVz7h0whPSQpmqBCqdL3aHgjTz2J64cJXErLYES6ZzSEN7+PBDprW0iB1JfCGzD5ku/Rg8RLiTKq+7qGY42PhZKpTWWh/k0EoyhMHpQIDAQAB",
+  "name": "Flashcard Creator",
+  "description": "Create Flashcards as you are reading and annotating articles",
+  "version": "1.0",
+  "permissions": [
+    "activeTab", "identity"
+  ],
+  "background": {
+    "page": "background.html",
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "Flashcard Creator"
+  },
+  "content_scripts": [
+    {
+    "matches": [
+        "http://*/*",
+        "https://*/*"
+        ],
+    "js": [
+      "content.js"],
+    "css": ["sidebar.css"],
+    "run_at": "document_idle"   
+    }
+], 
+  "oauth2": {
+    "client_id": "267484825162-2tqqv3r1l7h2gnu40c7nv82ki0mb628m.apps.googleusercontent.com",
+    "scopes":["https://www.googleapis.com/auth/spreadsheets", 
+      "https://www.googleapis.com/auth/drive", 
+      "https://www.googleapis.com/auth/script.projects", 
+      "https://www.googleapis.com/auth/script.external_request",
+      "https://www.googleapis.com/auth/drive.scripts"]
+  },   
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' https://apis.google.com https://script.google.com object-src 'self'"
+}
